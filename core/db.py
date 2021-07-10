@@ -52,7 +52,7 @@ class Db:
         # If the trust specifices the root account, map to account node
         elif trust.split(":")[5] == 'root':
             tx = f"""
-            MATCH (r:Role {{Arn: '{role['Arn']}'}}), (a:Account {{accountId: '{_get_account_id(trust)}'}})
+            MATCH (r:Role {{Arn: '{role['Arn']}'}}), (a:Account {{Id: '{_get_account_id(trust)}'}})
             MERGE (r) <-[:ASSUMES] -(a)
         """
 
