@@ -70,9 +70,7 @@ def process_account_sts(sts, account, db):
 
     try:
         roles = retreive_roles(iamClient)
-        print(roles)
         users = retreive_users(iamClient)
-        print(users)
         for role in roles:
             db.add_aws_role(role)
         for user in users:

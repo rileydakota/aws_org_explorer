@@ -6,6 +6,6 @@ def get_aws_accounts(client):
 
     while res.get("NextToken"):
         res = client.list_accounts(NextToken=res.get("NextToken"))
-        accounts.extend = res["Accounts"]
+        accounts.extend(res["Accounts"])
 
     return accounts

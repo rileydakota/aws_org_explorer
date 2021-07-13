@@ -18,7 +18,6 @@ class Db:
         MATCH (account:Account {{ Id: '{accountId}' }})
         MERGE (account)-[:OWNS]-(r:Role {{RoleName: '{role['RoleName']}', accountId: '{accountId}', Arn: '{role['Arn']}', RoleId: '{role['RoleId']}'}})
         """
-        print(self.graph.run(tx))
         self.add_role_trusts(role)
 
     def add_aws_user(self, user):
